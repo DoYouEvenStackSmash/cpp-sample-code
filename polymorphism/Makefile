@@ -6,7 +6,12 @@ CXX = g++
 CXXFLAGS = -Wall -g
 
 # ***************************************************
+# useful variables
+EXECUTABLE = progression_driver
+
+# ***********************************************
 # Targets needed to bring the executable up to date
+
 progression_driver: progression_driver.o progression.o arith_progression.o geom_progression.o fibonacci_progression.o
 	$(CXX) $(CXXFLAGS) -o progression_driver progression_driver.o progression.o arith_progression.o geom_progression.o fibonacci_progression.o
 
@@ -20,3 +25,6 @@ arith_progression.o: arith_progression.h progression.h
 geom_progression.o: geom_progression.h progression.h
 
 fibonacci_progression.o: fibonacci_progression.h progression.h
+
+clean:
+	/bin/rm -fv *.o $(EXECUTABLE)
